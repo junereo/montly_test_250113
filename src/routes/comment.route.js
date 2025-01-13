@@ -2,17 +2,19 @@ const express = require('express');
 const router = express.Router();
 const {
     getList, 
-    updateList, 
+    updateList,
+    viewList,
     writeList, 
     deleteList} = require('../controllers/comment.control')
 
 
 router.get('/list',getList);
 
+router.get('/update/:id',viewList);
 
-router.get('/update/:id',updateList);
+router.post('/update/:id',updateList);
 
-router.post('/update/:id',writeList);
+router.post('/write',writeList);
 
 router.post('/delete/:id',deleteList);
 
