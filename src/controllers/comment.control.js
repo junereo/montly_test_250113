@@ -23,6 +23,9 @@ const viewList = async (req, res)=>{
 
 const writeList = async (req, res)=>{
     const { content } = req.body;
+
+    if(!content) return res.status(200).redirect('/comment/list');
+    
     const data = {
         user_id : "kim",
         content : content
